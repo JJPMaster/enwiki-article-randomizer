@@ -1,0 +1,154 @@
+body {
+    background-color: #111;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+
+    height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#article {
+    margin: calc(50vh - (500px / 2)) auto 0 auto;
+
+    width: 500px;
+    height: 500px;
+
+    background-color: white;
+    border-radius: 15px;
+    
+    position: relative;
+    z-index: 100;
+}
+
+#article-hide {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+
+    background-color: #36c;
+    color: white;
+
+    z-index: 200;
+
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#article-text {
+    padding: 16px;
+}
+
+#article-image {
+    border-radius: 15px 15px 0 0;
+    height: 50%;
+    display: block;
+    background-color: #989898;
+    background-position: center;
+    background-size: cover;
+}
+
+#article-title {
+    margin: 0;
+    height: 1.2em;
+    line-height: 1.2em;
+    font-family: 'Linux Libertine','Georgia','Times',serif;
+    font-weight: normal;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#article-subtitle {
+    margin: 0;
+    margin-left: 1em;
+    color: gray;
+    font-weight: normal;
+    font-size: small;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#article-description {
+    margin: 0;
+    margin-top: 8px;
+    height: calc(1.2em * 8);
+    line-height: 1.2em;
+    overflow: hidden;
+
+    position: relative;
+}
+
+#article-description::after {
+    content: '';
+    
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 250px;
+    height: 1.2em;
+
+    pointer-events: none;
+
+    display: inline-block;
+    background: linear-gradient(to right, transparent, white);
+}
+
+#randomize {
+    background-color: #36c;
+    
+    position: absolute;
+    bottom: -32px;
+    right: -32px;
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+
+    cursor: pointer;
+    z-index: 4000;
+}
+
+#randomize img {
+    box-sizing: border-box;
+    padding: 16px;
+    height: 100%;
+    width: 100%;
+
+    transform: rotateZ(20deg);
+    transition: padding 0.2s ease-in-out;
+}
+
+#randomize:hover img {
+    padding: 14px;
+}
+
+@keyframes spin {
+    0% { transform: rotateZ(20deg) }
+    100% { transform: rotateZ(380deg) }
+}
+
+#randomize.spinning img {
+    animation: spin 1s linear infinite forwards;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    margin: 8px auto;
+    width: 100%;
+
+    text-align: center;
+}
+
+footer * {
+    color: white;
+    font-size: 0.6rem;
+}
