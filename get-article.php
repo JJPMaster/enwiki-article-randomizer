@@ -2,11 +2,10 @@
 header("Content-Type: text/plain");
 
 $type = "Featured";
-if (isset($_GET["good"]))
-    $type = "Good";
+
 
 $headers = get_headers(
-    "https://en.wikipedia.org/wiki/Special:RandomInCategory/" . $type . "_articles"
+    "https://en.uncyclopedia.co/wiki/Special:RandomInCategory/" . $type
 );
 
 foreach ($headers as $header) {
@@ -15,7 +14,7 @@ foreach ($headers as $header) {
             "_",
             " ",
             preg_replace(
-                "#Location:\s*https?:\/\/en\.wikipedia\.org\/wiki\/#i",
+                "#Location:\s*https?:\/\/en\.uncyclopedia\.co\/wiki\/#i",
                 "",
                 $header
             )
